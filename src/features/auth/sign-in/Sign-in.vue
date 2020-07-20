@@ -7,10 +7,21 @@
       </div>
       <div class="group">
         <label for="pass" class="label">Password</label>
-        <input id="pass" type="password" class="input" data-type="password" v-model="user.password" />
+        <input
+          id="pass"
+          type="password"
+          class="input"
+          data-type="password"
+          v-model="user.password"
+        />
       </div>
       <div class="group">
-        <input id="check" type="checkbox" class="check" v-model="user.keepSignedIn" />
+        <input
+          id="check"
+          type="checkbox"
+          class="check"
+          v-model="user.keepSignedIn"
+        />
         <label for="check">
           <span class="icon"></span> Keep me Signed in
         </label>

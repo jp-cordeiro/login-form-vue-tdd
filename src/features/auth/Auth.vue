@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="login-wrap">
-      {{navigation}}
+      {{ navigation }}
       <div class="login-html">
         <input
           id="tab-1"
@@ -25,8 +25,8 @@
         />
         <label for="tab-2" class="tab">Sign Up</label>
         <div class="login-form">
-          <SignUp></SignUp>
           <SignIn></SignIn>
+          <SignUp></SignUp>
         </div>
       </div>
     </div>

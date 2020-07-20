@@ -1,4 +1,5 @@
 import { mapGetters } from "vuex";
+import { required } from "vuelidate/lib/validators";
 
 export default {
   name: "SignIn",
@@ -11,10 +12,20 @@ export default {
       },
     };
   },
+  validations: {
+    user: {
+      username: {
+        required,
+      },
+    },
+  },
   computed: {
     ...mapGetters({
       navigation: "getNavigation",
     }),
+    isValid() {
+      return this.$v.$invalid;
+    },
   },
   methods: {
     doSignIn() {
