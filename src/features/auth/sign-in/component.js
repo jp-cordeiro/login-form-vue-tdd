@@ -46,6 +46,8 @@ export default {
           password: "",
           keepSignedIn: true,
         };
+
+        this.$v.$reset();
       }
     },
   },

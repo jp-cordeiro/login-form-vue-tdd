@@ -2,7 +2,12 @@
   <div>
     <form action="#" @submit.prevent class="sign-in-htm">
       <div class="group">
-        <label for="user" class="label">Username</label>
+        <label
+          for="user"
+          :class="{'invalid': isAttrInvalid('username')}"
+          @input="$v.user.username.$touch()"
+          class="label"
+        >Username</label>
         <input
           id="user"
           type="text"
@@ -13,7 +18,12 @@
         />
       </div>
       <div class="group">
-        <label for="pass" class="label">Password</label>
+        <label
+          for="pass"
+          :class="{'invalid': isAttrInvalid('password')}"
+          @input="$v.user.password.$touch()"
+          class="label"
+        >Password</label>
         <input
           id="pass"
           type="password"
