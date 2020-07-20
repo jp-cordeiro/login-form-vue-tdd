@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="login-wrap">
-      {{ navigation }}
       <div class="login-html">
         <input
           id="tab-1"

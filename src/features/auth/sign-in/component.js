@@ -17,6 +17,9 @@ export default {
       username: {
         required,
       },
+      password: {
+        required,
+      }
     },
   },
   computed: {
@@ -24,13 +27,16 @@ export default {
       navigation: "getNavigation",
     }),
     isValid() {
-      return this.$v.$invalid;
-    },
+      return !this.$v.$invalid;
+    }
   },
   methods: {
     doSignIn() {
       console.log("try login");
     },
+    isAttrInvalid(attr) {
+      return this.$v.user[attr].$dirty && this.$v.user[attr].$invalid
+    }
   },
   watch: {
     navigation(newValue) {

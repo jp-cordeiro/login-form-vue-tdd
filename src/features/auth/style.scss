@@ -32,6 +32,15 @@
 .login-form .group .check {
   display: none;
 }
+
+.login-form .group .label.invalid{
+  color: red;
+}
+
+.login-form .group .input.invalid{
+  border: 1px solid red;
+}
+
 .login-html .tab,
 .login-form .group .label,
 .login-form .group .button {
