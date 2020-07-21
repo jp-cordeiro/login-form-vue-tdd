@@ -19,7 +19,7 @@ export default {
   },
   watch: {
     navigation(newValue, oldValue) {
-      if (newValue !== oldValue) {
+      if (newValue && newValue !== oldValue) {
         for (let _attr in this.user) {
           this.user[_attr] = '';
         }
