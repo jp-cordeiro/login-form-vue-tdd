@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Auth from '@/features/auth/Auth';
+import Auth from './features/auth/Auth';
 
 export default {
   components: {
