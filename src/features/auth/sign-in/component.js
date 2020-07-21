@@ -1,13 +1,14 @@
-import { mapGetters } from "vuex";
-import { required } from "vuelidate/lib/validators";
+// import { mapGetters } from 'vuex';
+import { required } from 'vuelidate/lib/validators';
+import authMixin from '../../../mixins/auth/auth-mixin';
 
 export default {
-  name: "SignIn",
+  name: 'SignIn',
   data() {
     return {
       user: {
-        username: "",
-        password: "",
+        username: '',
+        password: '',
         keepSignedIn: true,
       },
     };
@@ -19,36 +20,13 @@ export default {
       },
       password: {
         required,
-      }
+      },
     },
-  },
-  computed: {
-    ...mapGetters({
-      navigation: "getNavigation",
-    }),
-    isValid() {
-      return !this.$v.$invalid;
-    }
   },
   methods: {
     doSignIn() {
-      console.log("try login");
-    },
-    isAttrInvalid(attr) {
-      return this.$v.user[attr].$dirty && this.$v.user[attr].$invalid
-    }
-  },
-  watch: {
-    navigation(newValue) {
-      if (newValue === "signUp") {
-        this.user = {
-          username: "",
-          password: "",
-          keepSignedIn: true,
-        };
-
-        this.$v.$reset();
-      }
+      console.log('try login');
     },
   },
+  mixins: [authMixin],
 };
