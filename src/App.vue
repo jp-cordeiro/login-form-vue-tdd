@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import Auth from "@/features/auth/Auth";
+import Auth from '@/features/auth/Auth';
 
 export default {
   components: {
-    Auth
-  }
+    Auth,
+  },
 };
 </script>
 
@@ -19,7 +19,7 @@ body {
   margin: 0;
   color: #6a6f8c;
   background: #c8c8c8;
-  font: 600 16px/18px "Open Sans", sans-serif;
+  font: 600 16px/18px 'Open Sans', sans-serif;
 }
 *,
 :after,
@@ -28,7 +28,7 @@ body {
 }
 .clearfix:after,
 .clearfix:before {
-  content: "";
+  content: '';
   display: table;
 }
 .clearfix:after {

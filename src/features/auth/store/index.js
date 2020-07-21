@@ -1,6 +1,6 @@
 export default {
   state: {
-    navigation: "",
+    navigation: '',
   },
   mutations: {
     SET_NAVIGATION(state, navigation) {
@@ -9,7 +9,7 @@ export default {
   },
   actions: {
     setNavigation({ commit }, navigation) {
-      commit("SET_NAVIGATION", navigation);
+      commit('SET_NAVIGATION', navigation);
     },
   },
   getters: {

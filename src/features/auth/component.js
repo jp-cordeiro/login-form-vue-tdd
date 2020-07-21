@@ -1,8 +1,8 @@
-import SignIn from "@/features/auth/sign-in/Sign-in";
-import SignUp from "@/features/auth/sign-up/Sign-up";
+import SignIn from '@/features/auth/sign-in/Sign-in';
+import SignUp from '@/features/auth/sign-up/Sign-up';
 
 export default {
-  name: "Auth",
+  name: 'Auth',
   components: {
     SignIn,
     SignUp,
@@ -16,7 +16,7 @@ export default {
         return this.$store.getters.getNavigation;
       },
       set(value) {
-        this.$store.dispatch("setNavigation", value);
+        this.$store.dispatch('setNavigation', value);
       },
     },
   },
@@ -26,6 +26,6 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("setNavigation", "signIn");
+    this.$store.dispatch('setNavigation', 'signIn');
   },
 };
