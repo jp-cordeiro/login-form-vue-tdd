@@ -16,8 +16,11 @@ describe('SignIn', () => {
     wrapper = shallowMount(SignIn);
   });
 
-  test('is a Vue instance', () => {
-    console.log(wrapper.vm.$v);
+  test('should SignIn is a Vue instance', () => {
     expect(wrapper).toBeTruthy();
+  });
+
+  test('should state validation model is invalid', () => {
+    expect(wrapper.vm.$v.$invalid).toBeTruthy();
   });
 });
