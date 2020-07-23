@@ -14,7 +14,7 @@ export default {
       return this.$v.user[attr].$dirty && this.$v.user[attr].$invalid;
     },
     teste() {
-      console.log('mixin');
+      return 'mixin';
     },
   },
   watch: {
