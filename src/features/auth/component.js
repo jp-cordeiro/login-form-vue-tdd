@@ -26,6 +26,6 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('setNavigation', 'signIn');
+    this.navigation = 'signIn';
   },
 };
