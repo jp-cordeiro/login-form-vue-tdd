@@ -119,4 +119,18 @@ describe('SignIn', () => {
 
     expect(signInComponent.isValid).toBeTruthy();
   });
+
+  test('should reset the values of user if change the navigation property', () => {
+    $store.dispatch('setNavigation', 'signUp');
+
+    const mockUser = {
+      username: '',
+      password: '',
+      keepSignedIn: true,
+    };
+
+    expect(signInComponent.navigation).toBe('signUp');
+    expect(user).toEqual(mockUser);
+    expect(signInComponent.isValid).toBeFalsy();
+  });
 });
