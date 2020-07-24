@@ -140,4 +140,29 @@ describe('SignIn', () => {
 
     expect(isInvalidCssClass).toBeFalsy();
   });
+
+  test('should set invalid class if username input is typed and after cleaned', async () => {
+    const userInput = wrapper.find('#user');
+    const isInvalidCssClass = userInput.classes('invalid');
+
+    expect(isInvalidCssClass).toBeFalsy();
+
+    //simulate teh user(person) type in username input
+    setData({
+      username: 'Beltrano',
+    });
+
+    userInput.trigger('input');
+
+    await wrapper.vm.$nextTick();
+
+    //simulate user(person) erase
+    resetData();
+
+    const isInvalidCssClassAfterAssingedNameValue = userInput.classes(
+      'invalid'
+    );
+
+    expect(isInvalidCssClassAfterAssingedNameValue).toBeTruthy();
+  });
 });
