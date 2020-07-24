@@ -16,16 +16,48 @@ Vue.use(Vuelidate);
 
 describe('SignIn', () => {
   let wrapper;
+  let signInComponent;
+  let user;
 
   const $store = AppStore;
+
+  const setData = values => {
+    if (!values) {
+      wrapper.setData({
+        user: {
+          username: 'Fulano',
+          password: 123456,
+        },
+      });
+    } else {
+      wrapper.setData({
+        user: {
+          ...values,
+        },
+      });
+    }
+  };
+
+  const resetData = () => {
+    wrapper.setData({
+      user: {
+        username: '',
+        password: '',
+      },
+    });
+  };
 
   beforeEach(() => {
     wrapper = shallowMount(SignIn, {
       // localVue,
+      sync: false,
       mocks: {
         $store,
       },
     });
+
+    signInComponent = wrapper.vm;
+    user = signInComponent.$data.user;
   });
 
   test('should SignIn is a Vue instance', () => {
@@ -33,18 +65,25 @@ describe('SignIn', () => {
   });
 
   test('should keepSignedIn starts with true', () => {
-    expect(wrapper.vm.user.keepSignedIn).toBeTruthy();
+    expect(user.keepSignedIn).toBeTruthy();
   });
 
   test('should load navigation with empty string', () => {
-    expect(wrapper.vm.navigation).toBe('');
+    expect(signInComponent.navigation).toBe('');
   });
 
   test('should state validation model is invalid', () => {
-    expect(wrapper.vm.$v.$invalid).toBeTruthy();
+    expect(signInComponent.$v.$invalid).toBeTruthy();
   });
 
   test('should computed property isValid is false', () => {
-    expect(wrapper.vm.isValid).toBeFalsy();
+    expect(signInComponent.isValid).toBeFalsy();
+  });
+
+  test('should the correct properties are present in the component state', () => {
+    const userProperties = Object.keys(user);
+    const expectedProperties = ['username', 'password', 'keepSignedIn'];
+
+    expect(userProperties).toEqual(expectedProperties);
   });
 });
