@@ -108,4 +108,15 @@ describe('SignIn', () => {
 
     expect(signInComponent.isValid).toBeFalsy();
   });
+
+  test('should isValid must be true if assigned all properties for user', () => {
+    wrapper.setData({
+      user: {
+        username: 'fulano',
+        password: '123456',
+      },
+    });
+
+    expect(signInComponent.isValid).toBeTruthy();
+  });
 });
