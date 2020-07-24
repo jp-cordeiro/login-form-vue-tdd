@@ -133,4 +133,11 @@ describe('SignIn', () => {
     expect(user).toEqual(mockUser);
     expect(signInComponent.isValid).toBeFalsy();
   });
+
+  test('should invalid class is not present when component is loaded', () => {
+    const userInput = wrapper.find('#user');
+    const isInvalidCssClass = userInput.classes('invalid');
+
+    expect(isInvalidCssClass).toBeFalsy();
+  });
 });
