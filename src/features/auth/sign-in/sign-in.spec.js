@@ -86,4 +86,15 @@ describe('SignIn', () => {
 
     expect(userProperties).toEqual(expectedProperties);
   });
+
+  test('should isValid must be false if not username assign to the user property ', () => {
+    wrapper.setData({
+      user: {
+        username: '',
+        password: '123456',
+      },
+    });
+
+    expect(signInComponent.isValid).toBeFalsy();
+  });
 });
