@@ -20,12 +20,12 @@ export default {
       },
     },
   },
+  created() {
+    this.navigation = 'signIn';
+  },
   methods: {
     navigate() {
       // console.log(this.navigation);
     },
-  },
-  created() {
-    this.navigation = 'signIn';
   },
 };

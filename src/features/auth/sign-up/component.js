@@ -3,6 +3,7 @@ import authMixin from '../../../mixins/auth/auth-mixin';
 
 export default {
   name: 'SignUp',
+  mixins: [authMixin],
   data() {
     return {
       user: {
@@ -31,10 +32,4 @@ export default {
       },
     },
   },
-  mixins: [authMixin],
-  // methods: {
-  //   teste() {
-  //     console.log('component');
-  //   },
-  // },
 };

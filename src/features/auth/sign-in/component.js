@@ -3,6 +3,7 @@ import authMixin from '../../../mixins/auth/auth-mixin';
 
 export default {
   name: 'SignIn',
+  mixins: [authMixin],
   data() {
     return {
       user: {
@@ -27,5 +28,4 @@ export default {
       console.log('try login');
     },
   },
-  mixins: [authMixin],
 };
