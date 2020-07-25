@@ -27,6 +27,7 @@ describe('SignIn', () => {
         user: {
           username: 'Fulano',
           password: 123456,
+          keepSignedIn: true,
         },
       });
     } else {
@@ -110,24 +111,22 @@ describe('SignIn', () => {
   });
 
   test('should isValid must be true if assigned all properties for user', () => {
-    wrapper.setData({
-      user: {
-        username: 'fulano',
-        password: '123456',
-      },
-    });
+    setData();
 
     expect(signInComponent.isValid).toBeTruthy();
   });
 
-  test('should reset the values of user if change the navigation property', () => {
-    $store.dispatch('setNavigation', 'signUp');
-
+  test('should reset the values of user if change the navigation property', async () => {
     const mockUser = {
       username: '',
       password: '',
-      keepSignedIn: true,
+      keepSignedIn: '',
     };
+
+    setData();
+    $store.dispatch('setNavigation', 'signUp');
+
+    await signInComponent.$nextTick();
 
     expect(signInComponent.navigation).toBe('signUp');
     expect(user).toEqual(mockUser);
